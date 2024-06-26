@@ -1,4 +1,5 @@
 import React from "react";
+import addAvatar from "../img/addAvatar.png";
 
 const Regester = () => {
   return (
@@ -10,7 +11,11 @@ const Regester = () => {
           <input type="text" placeholder="Display Name" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <input type="file" />
+          <input hidden type="file" id="file" />
+          <label htmlFor="file">
+            <img src={addAvatar} alt="upload profile" />
+            <span>Add an Avatar</span>
+          </label>
           <button>Regester</button>
         </form>
         <p>You have an account? Login</p>
