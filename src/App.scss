@@ -1,0 +1,59 @@
+.formcontainer {
+  background-color: #a7bcff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Suggested code may be subject to a license. Learn more: ~LicenseLog:2337272865.
+  .fromwriper {
+    // Suggested code may be subject to a license. Learn more: ~LicenseLog:434404186.
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      color: #4668d8;
+      font-weight: 600;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .tilte {
+      color: #849dee;
+      font-size: 12px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      button {
+        background-color: #7591eb;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      input {
+        width: 250px;
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #a7bcff;
+        &::placeholder {
+          color: rgb(175, 175, 175);
+        }
+      }
+    }
+    p {
+      color: #4668d8;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
