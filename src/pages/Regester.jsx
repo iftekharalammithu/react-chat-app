@@ -6,7 +6,7 @@ import { set } from "firebase/database";
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db, databaseref } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Regester = () => {
   const navigate = useNavigate();
@@ -15,17 +15,17 @@ const Regester = () => {
   const handelsubmit = async (e) => {
     e.preventDefault();
 
-    const displayname = e.target[0].value;
+    const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
 
-    // console.log(displayname, email, password, file);
+    // console.log(displayName, email, password, file);
 
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      const storageRef = ref(storage, displayname);
+      const storageRef = ref(storage, displayName);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
@@ -37,18 +37,18 @@ const Regester = () => {
           // Upload completed successfully, now we can get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(res.user, {
-              displayname,
+              displayName,
               photoURL: downloadURL,
             });
 
-            await set(databaseref(db, res.user.uid), {
+            await set(databaseref(db, "users", res.user.uid), {
               uid: res.user.uid,
-              displayname,
+              displayName,
               email,
               photoURL: downloadURL,
             });
 
-            await set(databaseref(db, res.user.uid), {});
+            // await set(databaseref(db, res.user.uid), {});
             navigate("/");
 
             // console.log("res.user=>>>", res.user);
@@ -76,8 +76,10 @@ const Regester = () => {
           </label>
           <button>Regester</button>
         </form>
-        {error ? <p>Something went wrong</p> : ""}
-        <p>You have an account? Login</p>
+        {error ? <p style={{ color: "red" }}>Something went wrong</p> : ""}
+        <p>
+          You have an account? <Link to="/login">Login</Link>{" "}
+        </p>
       </div>
     </div>
   );

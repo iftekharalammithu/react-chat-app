@@ -13,6 +13,7 @@ function App() {
     if (!currentuser) {
       return <Navigate to="/login" />;
     }
+    return children;
   };
 
   return (
