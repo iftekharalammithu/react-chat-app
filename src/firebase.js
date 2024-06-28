@@ -14,6 +14,10 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APPID,
 };
 
+export const logout = () => {
+  console.log("logout");
+};
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();

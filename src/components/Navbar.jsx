@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -14,8 +16,7 @@ const Navbar = () => {
         <img src="src/img/download (3).jpg" alt="" />
         <span className="username">jhon</span>
         {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2931979156. */}
-        <button onClick={logout} className="logout">
-          {" "}
+        <button onClick={() => signOut(auth)} className="logout">
           logout
         </button>
       </div>
