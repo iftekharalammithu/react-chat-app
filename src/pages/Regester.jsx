@@ -48,7 +48,7 @@ const Regester = () => {
               photoURL: downloadURL,
             });
 
-            // await set(databaseref(db, res.user.uid), {});
+            // await set(databaseref(db, `"chats"+${res.user.uid}`), {});
             navigate("/");
 
             // console.log("res.user=>>>", res.user);

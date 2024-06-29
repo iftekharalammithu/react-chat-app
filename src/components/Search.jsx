@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { db, databaseref } from "../firebase";
 import { get, child } from "firebase/database";
+import { Authcontext } from "../context/authcontext";
 
 const Search = () => {
   const [username, setusername] = useState();
   const [user, setuser] = useState();
   const [error, seterror] = useState(false);
+  const { currentuser } = useContext(Authcontext);
 
   const handelsearch = async () => {
     // console.log("working");
@@ -17,6 +19,8 @@ const Search = () => {
         get(child(usersRef, username)).then((snapshot) => {
           if (snapshot.exists()) {
             const userData = snapshot.val();
+            console.log(userData);
+            console.log(currentuser);
             setuser(userData);
             seterror(false);
           } else {
@@ -31,6 +35,9 @@ const Search = () => {
       console.log(error);
       seterror(true);
     }
+  };
+  const handelselect = () => {
+    console.log(user);
   };
 
   const handelkey = (e) => {
@@ -53,7 +60,7 @@ const Search = () => {
         ""
       )}
       {user && (
-        <div className="userchat">
+        <div className="userchat" onClick={handelselect}>
           <img src={user.photoURL} alt="user-profile" />
           <div className="userinfo">
             <span>{user.displayName}</span>
