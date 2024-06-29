@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, databaseref } from "../firebase";
+import { get, child } from "firebase/database";
 
 const Search = () => {
   const [username, setusername] = useState();
@@ -8,17 +8,25 @@ const Search = () => {
   const [error, seterror] = useState(false);
 
   const handelsearch = async () => {
-    console.log("working");
-    const q = query(
-      collection(db, "users"),
-      where("displayName", "==", username)
-    );
+    // console.log("working");
 
     try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setuser(doc.data());
-      });
+      if (username) {
+        setuser(null);
+        const usersRef = databaseref(db);
+        get(child(usersRef, username)).then((snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            setuser(userData);
+            seterror(false);
+          } else {
+            seterror(true);
+            setuser(null);
+          }
+        });
+      } else {
+        seterror(false);
+      }
     } catch (error) {
       console.log(error);
       seterror(true);
@@ -39,7 +47,11 @@ const Search = () => {
           placeholder="Find A User"
         />
       </div>
-      {error ? <p style={{ color: "red" }}>User Not Found!</p> : ""}
+      {error ? (
+        <p style={{ color: "red", paddingLeft: "10px" }}>User Not Found!</p>
+      ) : (
+        ""
+      )}
       {user && (
         <div className="userchat">
           <img src={user.photoURL} alt="user-profile" />

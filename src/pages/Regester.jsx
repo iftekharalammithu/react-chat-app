@@ -41,7 +41,7 @@ const Regester = () => {
               photoURL: downloadURL,
             });
 
-            await set(databaseref(db, "users", res.user.uid), {
+            await set(databaseref(db, displayName), {
               uid: res.user.uid,
               displayName,
               email,
