@@ -12,11 +12,16 @@ This project is a chat messaging web app built with React and Vite. It allows us
 
 Follow on social media:
 
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://x.com/M1thuChowdhury)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/iftekharalammithu/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/iftekharalammithu/)
+[<img src="https://user-images.githubusercontent.com/74038190/235294011-b8074c31-9097-4a65-a594-4151b58743a8.gif" width="100">
+](https://x.com/M1thuChowdhury)
+[<img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" width="100">
+](https://www.linkedin.com/in/iftekharalammithu/)
+[<img src="https://user-images.githubusercontent.com/74038190/235294013-a33e5c43-a01c-43f6-b44d-a406d8b4ab75.gif" width="100">
+](https://www.instagram.com/iftekharalammithu/)
 
- <!-- [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)](https://youtube.com/yourchannel) -->
- <!-- [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://facebook.com/yourpage) -->
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/iftekharalammithu)
+<div style="text-align: center;">
+  <a href="https://www.buymeacoffee.com/iftekharalammithu">
+    <img src="https://media.giphy.com/media/o7RZbs4KAA6tvM4H6j/giphy.gif" style=" display: block; margin: auto;" width="200">
+  </a>
+</div>
